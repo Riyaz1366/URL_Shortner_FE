@@ -1,30 +1,47 @@
 import './style.css'
+import React, { useState } from "react";
+import axios from "axios";
 
 const Pages = () => {
-return(
-<>
 
-    <div className='containerheader' >
-      <h1> URL Shortner  </h1>
-    </div>
-<form  >
-    <div>
+  const [originalURL, setOriginalURL] = useState("");
+  const [shortenedURL, setShortenedURL] = useState("");
 
-    <div class="mb-3"     >
-  <label  style={{ display: 'flex', justifyContent: 'center' }} for="exampleFormControlTextarea1"  class="form-label">Enter Your URL</label>
-  <textarea    style={{height:"10px", width:"300px"   }}  className="form-control form-control-sm" rows="3"></textarea>
-</div>
-    </div>
 
-    <div class="my-button"  >
-    <button > Shrink URL    </button>
-    </div>
+  const shortenURL = async () => {
+    try {
+      const response = await axios.post("http://localhost:3002/shorten", { originalURL });
+      setShortenedURL(response.data.shortenedURL);
+    } catch (error) {
+     console.log(error)
+    }
+  };
+  
+  return (
+    <div className="container">
+      <div className="header">
+        <h1>URL Shortener</h1>
+      </div>
+      <form className="url-form">
+        <div>
+          <input
+            type="text"
+            placeholder="Enter URL to shorten"
+            value={originalURL}
+            onChange={(e) => setOriginalURL(e.target.value)}
+          />
+          <button className="shorten-button" onClick={shortenURL}>
+            Shorten
+          </button>
+        </div>
+        {shortenedURL && (
+          <p className="shortened-url">Shortened URL: {shortenedURL}</p>
+        )}
+      </form>
 
-    </form> 
 
-    </>     
-)
-
+   </div>
+  );
 }
 
 export default Pages;

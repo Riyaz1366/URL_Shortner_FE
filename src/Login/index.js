@@ -29,32 +29,25 @@ function Login() {
         password: userData.password,
       });
       if (response.status === 200) {
-      const token = response.data.token;
+        const token = response.data.token;
 
         setUserData({
           email: "",
           password: "",
         });
 
-   
         localStorage.setItem("token", token);
-        navigate('/page')     
-
-      }else{
-
-        alert('Login Failed: Unauthorized');
+        navigate("/page");
+      } else {
+        alert("Login Failed: Unauthorized");
       }
-     
-      
     } catch (error) {
+      alert("Login Failed: Invalid Username and Password");
 
-      alert('Login Failed: Invalid Username and Password');
-      
       setUserData({
         email: "",
         password: "",
       });
-
     }
   };
 
@@ -62,8 +55,8 @@ function Login() {
     <div className="background">
       {/* Background image */}
       <div className="form-container">
-      <h1 className="white-text text-center">Login</h1>
-        <form onSubmit={handleLogin}  className="container mt-8" >
+        <h1 className="white-text text-center">Login</h1>
+        <form onSubmit={handleLogin} className="container mt-8">
           <div className="mb-3">
             <label className="white-text" htmlFor="email">
               Email Id:
@@ -90,19 +83,27 @@ function Login() {
               onChange={handleChange}
               required
               autoComplete="current-password"
-                
             />
           </div>
           <div className="d-grid">
-          <button type="submit" className="btn btn-primary btn-sm">
-            Login
-          </button>
-         <div>
-         <p className="forgot-password text-right">
-  Click Here to Register<strong><a href="/register" className="text-primary" id="sign-in-link">Sign up</a></strong>
-</p></div>       
+            <button type="submit" className="btn btn-primary btn-sm">
+              Login
+            </button>
+            <div>
+              <p className="forgot-password text-right">
+                Click Here to Register
+                <strong>
+                  <a
+                    href="/register"
+                    className="text-primary"
+                    id="sign-in-link"
+                  >
+                    Sign up
+                  </a>
+                </strong>
+              </p>
             </div>
-         
+          </div>
         </form>
       </div>
     </div>
