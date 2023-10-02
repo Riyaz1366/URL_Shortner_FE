@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 function Login() {
   const [userData, setUserData] = useState({
@@ -23,7 +24,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://authentication-bk.onrender.com/login", {
+      const response = await axios.post("http://localhost:3002/login", {
         email: userData.email,
 
         password: userData.password,
@@ -91,15 +92,19 @@ function Login() {
             </button>
             <div>
               <p className="forgot-password text-right">
-                Click Here to Register
                 <strong>
-                  <a
-                    href="/register"
-                    className="text-primary"
-                    id="sign-in-link"
-                  >
-                    Sign up
-                  </a>
+                  <div>
+                    <label>Register Here</label>
+                    <NavLink to="/register" activeClassName="active">
+                      Sign Up
+                    </NavLink>
+                  </div>
+                  <div>
+                    <label>Forget Password</label>
+                    <NavLink to="/forgetpassword" activeClassName="active">
+                      Forgot Password
+                    </NavLink>
+                  </div>
                 </strong>
               </p>
             </div>
