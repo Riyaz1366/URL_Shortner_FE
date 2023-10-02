@@ -24,7 +24,7 @@ function Signup() {
     e.preventDefault();
     const { username, email, password } = userData;
     axios
-      .post("http://localhost:3002/users", { username, email, password })
+      .post("https://reset-password-cnvf.onrender.com/users", { username, email, password })
       .then((result) => console.log(result)
     
       )
