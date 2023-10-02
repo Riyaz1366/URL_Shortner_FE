@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import './forget.css'; 
+import React, { useState } from "react";
+import axios from "axios";
+import "./forget.css";
 
-import { useNavigate } from 'react-router';
-
+import { useNavigate } from "react-router";
 
 function ForgotPassword() {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-
-
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -17,20 +14,23 @@ function ForgotPassword() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3002/forgot-password',{
-        email:email,
-      });
-console.log(response)
+      const response = await axios.post(
+        "https://reset-password-cnvf.onrender.com/forgot-password",
+        {
+          email: email,
+        }
+      );
+      console.log(response);
       if (response.status === 200) {
-        alert('Temptoken Send to your Email');
-        // history.push('/reset-password'); 
+        alert("Temptoken Send to your Email");
+        // history.push('/reset-password');
         navigate("/reset-password");
       } else {
-        setMessage(response.data.message || 'Something went wrong.');
+        setMessage(response.data.message || "Something went wrong.");
       }
     } catch (error) {
-      console.error('Error:', error);
-      setMessage('Something went wrong.');
+      console.error("Error:", error);
+      setMessage("Something went wrong.");
     }
   };
 

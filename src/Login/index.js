@@ -24,11 +24,14 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3002/login", {
-        email: userData.email,
+      const response = await axios.post(
+        "https://reset-password-cnvf.onrender.com/login",
+        {
+          email: userData.email,
 
-        password: userData.password,
-      });
+          password: userData.password,
+        }
+      );
       if (response.status === 200) {
         const token = response.data.token;
 
