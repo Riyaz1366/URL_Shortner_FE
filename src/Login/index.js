@@ -41,7 +41,7 @@ function Login() {
         });
 
         localStorage.setItem("token", token);
-        navigate("/page");
+        navigate("/Home");
       } else {
         alert("Login Failed: Unauthorized");
       }
