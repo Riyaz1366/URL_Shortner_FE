@@ -19,7 +19,7 @@ const Pages = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3002/shorten", {
+      const response = await axios.post("https://url-shortner-bk.onrender.com/shorten", {
         long_url: originalURL,
       });
 

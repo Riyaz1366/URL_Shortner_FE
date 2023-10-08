@@ -14,7 +14,7 @@ import "./ShortenedURLList.css";
 
   useEffect(() => {
     axios
-      .get("http://localhost:3002/all-shortened-urls")
+      .get("https://url-shortner-bk.onrender.com/all-shortened-urls")
       .then((response) => {
         console.log(response.data);
         setUrls(response.data);
@@ -58,7 +58,7 @@ import "./ShortenedURLList.css";
         {urls.map((url) => (
           <li key={url.short_key} className="url-item">
             <a
-              href={`http://localhost:3002/shorten/${url.short_key}`}
+              href={`https://url-shortner-bk.onrender.com/shorten/${url.short_key}`}
               target="_blank"
               rel="noreferrer"
               onClick={() => handleURLClick(url.short_key)} 

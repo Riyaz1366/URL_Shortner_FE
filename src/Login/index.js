@@ -104,7 +104,7 @@ function Login() {
                   <div>
                     <label>Forget Password</label>
                     <NavLink to="/forgetpassword" activeClassName="active">
-                      Forgot Password
+                     Click Here
                     </NavLink>
                   </div>
                 </strong>
