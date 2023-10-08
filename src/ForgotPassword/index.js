@@ -23,7 +23,7 @@ function ForgotPassword() {
       console.log(response);
       if (response.status === 200) {
         alert("Temptoken Send to your Email");
-        // history.push('/reset-password');
+
         navigate("/reset-password");
       } else {
         setMessage(response.data.message || "Something went wrong.");

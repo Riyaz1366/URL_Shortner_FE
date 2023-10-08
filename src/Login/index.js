@@ -57,7 +57,6 @@ function Login() {
 
   return (
     <div className="background">
-      {/* Background image */}
       <div className="form-container">
         <h1 className="white-text text-center">Login</h1>
         <form onSubmit={handleLogin} className="container mt-8">

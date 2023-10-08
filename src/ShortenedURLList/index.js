@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { NavLink } from 'react-router-dom';
+import {  useNavigate} from 'react-router-dom';
+
+import {AiFillBackward} from 'react-icons/ai'
+
 
 import "./ShortenedURLList.css";
 
  function ShortenedURLList() {
   const [urls, setUrls] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -20,23 +25,32 @@ import "./ShortenedURLList.css";
   }, []);
 
   const handleURLClick = (shortKey) => {
-    // Increment the click count on the frontend
+ 
     setUrls((prevUrls) =>
       prevUrls.map((url) =>
         url.short_key === shortKey
-          ? { ...url, Clicks: url.Clicks + 1 } // Update the click count
+          ? { ...url, Clicks: url.Clicks + 1 } 
           : url
       )
     );
   };
   
 
+
+  const handlClick = () => {
+
+    navigate("/Home")
+
+  }
+
   return (
 
     <>
-    <div>
-    <h2>List of Shortened URLs</h2>
-    <NavLink></NavLink>
+    <div >
+    <h2>List of Shortened URLs    </h2>
+    
+    <AiFillBackward  onClick={handlClick}  size={50}  />
+  
     </div>
     <div className="list-container">
       
@@ -55,6 +69,7 @@ import "./ShortenedURLList.css";
           </li>
         ))}
       </ul>
+      
     </div>
     </>
   );

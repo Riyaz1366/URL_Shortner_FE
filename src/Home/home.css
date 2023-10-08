@@ -6,13 +6,6 @@
   align-items: center;
 }
 
-/* Optional: Increase font size for active link */
-/* .nav-item.active .nav-link {
-  font-size: 18px;
-  font-weight: bold;
-} */
-
-/* Optional: Adjust spacing between navbar items */
 .nav-item {
   margin-left: 100px;
   margin-right: 10px;
@@ -24,10 +17,8 @@
   display: flex;
 
  justify-content: center;
- background-image: '../image/'; /* Replace with the actual path to your background image */
- background-size: cover; /* Adjust the background size as needed */
- background-repeat: no-repeat; /* Prevent the background image from repeating */
+ background-image: '../image/'; 
+ background-size: cover;
+ background-repeat: no-repeat; 
 
 }
-
-/* https://www.pexels.com/photo/blue-universe-956981/ */
